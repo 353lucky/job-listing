@@ -26,7 +26,7 @@ export default () => {
     setLoading(true);
     const req = await firestore.collection('jobs').orderBy('postedOn', 'desc').get();
     const tempJob = req.docs.map((job) => ({ ...job.data() , id: job.id , postedOn: job.data().postedOn.toDate()}));
-    console.log(tempJob)
+    // console.log(tempJob)
     setJobs(tempJob);
     setLoading(false)
   }
